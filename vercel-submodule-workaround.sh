@@ -22,7 +22,7 @@ function submodule_workaround {
   fi
 
   echo "Monkey patching..."
-  sed -i "$FEXT" "s/git@github.com:/https:\/\/oauth2:${GITHUB_REPO_CLONE_TOKEN}@github.com\//" "$GITMODULES"
+  sed -i"$FEXT" "s/git@github.com:/https:\/\/oauth2:${GITHUB_REPO_CLONE_TOKEN}@github.com\//" "$GITMODULES"
   echo "Done!"
 
   echo "Synchronising submodules' remote URL configuration..."
@@ -30,7 +30,7 @@ function submodule_workaround {
   echo "Done!"
 
   echo "Updating the registered submodules to match what the superproject expects..."
-  git submodule update --init --recursive
+  git submodule update --init --recursive --jobs "$(getconf _NPROCESSORS_ONLN)"
   echo "Done!"
 }
 
