@@ -3,7 +3,8 @@
 set -Eeuo pipefail
 
 GITMODULES=".gitmodules"
-GITMODULES_BACKUP="${GITMODULES}.bak"
+FEXT=".bak"
+GITMODULES_BACKUP="${GITMODULES}${FEXT}"
 
 function cleanup {
   echo "Cleaning the runner..."
@@ -20,12 +21,8 @@ function submodule_workaround {
     exit 1
   fi
 
-  echo "Copying a backup file..."
-  cp "$GITMODULES" "$GITMODULES_BACKUP"
-  echo "Done!"
-
   echo "Monkey patching..."
-  sed -i "s/git@github.com:/https:\/\/oauth2:${GITHUB_REPO_CLONE_TOKEN}@github.com\//" .gitmodules
+  sed -i "$FEXT" "s/git@github.com:/https:\/\/oauth2:${GITHUB_REPO_CLONE_TOKEN}@github.com\//" "$GITMODULES"
   echo "Done!"
 
   echo "Synchronising submodules' remote URL configuration..."
