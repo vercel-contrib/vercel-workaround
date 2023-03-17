@@ -1,0 +1,27 @@
+name: Hygiene
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  hygiene:
+    name: Hygiene
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set-up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      # Dependencies
+      - run: brew install shellcheck shfmt
+
+      # Check formatting with shfmt
+      - run: make format-check
+
+      # Check linting with shellcheck
+      - run: make lint
