@@ -23,6 +23,8 @@ This script avoids those problems in a reasonable, sounder way.
 | `GITHUB_REPO_CLONE_TOKEN` | `•••••••••••••••` |
 | ------------------------- | ----------------- |
 
+---
+
 ### Yarn Berry Offline Cache
 
 It's not recommended to cache `node_modules`, as it can break across node
