@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -Eeuxo pipefail
+set -Eeuo pipefail
 
 function yarn_berry_offline_cache_workaround {
   if [ "$ENABLE_ROOT_PATH_BUILD_CACHE" == "1" ]; then

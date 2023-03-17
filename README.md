@@ -38,3 +38,10 @@ total of 1.2GB) gives a Yarn cache of 2k binary archives (for a total of 139MB)!
 
 | `INSTALL COMMAND` | `bash ./vercel-yarn-berry-offline-cache-workaround.sh && yarn install --immutable` |
 | ----------------- | ---------------------------------------------------------------------------------- |
+
+#### Environment Variables
+
+> Project -> Settings -> Environment Variables
+
+| `ENABLE_ROOT_PATH_BUILD_CACHE` | `0` |
+| ------------------------------ | --- |

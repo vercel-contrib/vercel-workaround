@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -Eeuxo pipefail
+set -Eeuo pipefail
 
 GITMODULES=".gitmodules"
 FEXT=".bak"
